@@ -5,7 +5,7 @@ const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
 
 let userMessage = null; // Variable to store user's message
-const API_KEY = "PASTE-YOUR-API-KEY"; // Paste your API key here
+const API_KEY = "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"; // Paste your API key here
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -27,7 +27,7 @@ const generateResponse = (chatElement) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`
+            "Authorization": `Bearer ${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}`
         },
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
@@ -36,7 +36,7 @@ const generateResponse = (chatElement) => {
     }
 
     // Send POST request to API, get response and set the reponse as paragraph text
-    fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
+    fetch("https://api.openai.com/v1/chat/completions", requestOptions).then(res => res.json()).then(data => {
         messageElement.textContent = data.choices[0].message.content.trim();
     }).catch(() => {
         messageElement.classList.add("error");
